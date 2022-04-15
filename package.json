@@ -1,0 +1,19 @@
+{
+  "name": "ds-algo-js",
+  "version": "1.0.0",
+  "description": "Data Structure and Algorithms in Javascript",
+  "main": "Array.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MahmoudSafan/DS-Algo-JS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MahmoudSafan/DS-Algo-JS/issues"
+  },
+  "homepage": "https://github.com/MahmoudSafan/DS-Algo-JS#readme"
+}

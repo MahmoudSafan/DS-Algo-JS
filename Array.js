@@ -69,3 +69,41 @@ for(var i=0;i<numrows;++i){
 *
 *
  */
+
+// exercise no.1
+
+function Student(){
+    this.grades = []
+    this.add = add
+    this.display = display
+}
+
+function add(grade){
+    this.grades.push(grade)
+}
+
+function display(){
+    for(var i=0; i< this.grades.length; i++){
+        console.log("Student number.",i+1," ",this.grades[i])
+    }
+}
+
+var std = new Student()
+std.add(1)
+std.add(1)
+std.add(1)
+std.display()
+
+
+// exercise no.2
+
+var words = "Store a set of words in an array and display the contents both forward and backward"
+words = words.split(" ")
+console.log(words)
+words.reverse()
+console.log(words)
+
+// exersise no.3
+
+
+// exersise no.4
