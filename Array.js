@@ -103,7 +103,30 @@ console.log(words)
 words.reverse()
 console.log(words)
 
+
 // exersise no.3
 
+function Char(){
+    this.dataStore = []
+    this.add = addChar
+    this.display = displayString
+    this.strLen = strLen
+}
 
-// exersise no.4
+function addChar(char){
+    this.dataStore.push(char)
+}
+
+function displayString(){
+    console.log(this.dataStore.join(""))
+}
+
+function strLen(){
+    return this.dataStore.length()
+}
+
+var myChar = new Char()
+myChar.add('M')
+myChar.add('a')
+myChar.add('h')
+myChar.display()
