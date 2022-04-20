@@ -16,9 +16,8 @@
 √ next (function)             --> Moves current position forward one element
 √ currPos (function)          --> Returns the current position in list
 √ moveTo (function)           --> Moves the current position to specified position
+√ isEmpty (function)          --> Returns true/false
 */
-
-
 
 
 class List{
