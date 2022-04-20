@@ -1,9 +1,9 @@
 /**
- * ADT List   --> Require a smart validation
+* ADT List   --> Require a smart validation
  
 √ listSize (property)         --> Number of elements in list
 √ pos (property)              --> Current position in list
-√ length (property)           --> Returns the number of elements in list
+√ length (function)           --> Returns the number of elements in list
 √ clear (function)            --> Clears all elements from list
 √ toString (function)         --> Returns string representation of list
 √ getElement(function)        --> Returns element at current position
@@ -11,35 +11,33 @@
 √ append (function)           --> Adds new element to end of list
 √ remove (function)           --> Removes element from list
 √ front (function)            --> Sets current position to first element of list
-end (function)              --> Sets current position to last element of list
-prev (function)             --> Moves current position back one element
-next (function)             --> Moves current position forward one element
-currPos (function)          --> Returns the current position in list
-moveTo (function)           --> Moves the current position to specified position
-
+√ end (function)              --> Sets current position to last element of list
+√ prev (function)             --> Moves current position back one element
+√ next (function)             --> Moves current position forward one element
+√ currPos (function)          --> Returns the current position in list
+√ moveTo (function)           --> Moves the current position to specified position
 */
+
+
+
 
 class List{
     constructor(){
         this.data = [];
-        this.top = 0;
-        this.length = 0;
+        this.pos = 0;
+        this.listSize = 0;
     }
 
-    listSize(){
-        return this.top;
-    }
-
-    pos(){
-        return this.top -1;
+    isEmpty(){
+        return this.listSize === 0;
     }
 
     length(){
-        return this.top;
+        return this.listSize;
     }
 
     find(element){
-        for(var i=0; i<this.top; i++){
+        for(var i=0; i<this.listSize; i++){
             if(element === this.data[i])
                 return i;
         }
@@ -48,9 +46,9 @@ class List{
 
     remove(element){
         let index = this.find(element);
-        if( index >= 0){
-            this.data.splice(index,index);
-            this.top--;
+        if(index > -1 ){
+            this.data.splice(index,1);
+            this.listSize--;
             return true;
         }
         return false;
@@ -59,41 +57,78 @@ class List{
     clear(){
        delete this.data;
        this.data = [];
-       this.top = 0
+       this.pos = this.listSize = 0;
     }
 
     toStrign(){
-        return this.data.join("")
+        return this.data;
     }
 
     getElement(){
-        return this.data[this.top - 1];
+        return this.data[this.pos];
     }
 
     append(element){
-        this.data[this.top++] = element;
+        this.data[this.listSize++] = element;
     }
 
     insert(element,index){
-        if(index > 0 && index <= this.top){
+        if(index > 0 && index <= this.listSize){
             this.data.splice(index,0,element);
-            this.top++;
+            this.listSize++;
             return true;
         }
         return false;
     }
 
     front(){
-        this.top = 0;
+        this.pos = 0;
+    }
+
+    end(){
+        this.pos = this.listSize - 1;
+    }
+
+    prev(){
+        if(!this.isEmpty())
+            this.pos--;
+        // !(this.isEmpty) ? this.pos-- : this.pos; 
+    }
+
+    next(){
+        this.listSize  === this.pos ? this.pos : this.pos++; 
+    }
+
+    currPos(){
+        return this.pos;
+    }
+
+    moveTo(index){
+        if(index > 0 && index <= this.listSize)
+            this.pos = index;
     }
 
 }
 
-var l = new List();
-l.append(5)
-l.append(2)
-l.append(5)
-l.append(5)
-console.log(l.insert(3,2));
-l.remove(2);
-console.log(l.toStrign());
+var names = new List();
+names.append("Clayton");
+names.append("Raymond");
+names.append("Cynthia"); 
+names.append("Jennifer"); 
+names.append("Bryan"); 
+names.append("Danny");
+
+names.front();
+console.log(names.getElement());    // Clayton
+
+names.next()
+console.log(names.getElement());    // Raymond
+
+names.next();
+names.next();
+names.prev();
+console.log(names.getElement());    // Cynthia  
+
+for(names.front(); names.currPos() < names.length(); names.next()) {
+    console.log(names.getElement());
+}
