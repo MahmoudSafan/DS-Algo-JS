@@ -17,6 +17,10 @@
 √ currPos (function)          --> Returns the current position in list
 √ moveTo (function)           --> Moves the current position to specified position
 √ isEmpty (function)          --> Returns true/false
+√ traverse (function)         --> Print all elements
+√ contains (function)         --> return true/false
+√ littleAppend(function)      --> append element if he smaller element in the list
+√ biggerAppend(function)      --> append element if he bigger element in the list
 */
 
 
@@ -25,6 +29,8 @@ class List{
         this.data = [];
         this.pos = 0;
         this.listSize = 0;
+        this.bigval  = Number.NEGATIVE_INFINITY;
+        this.littleVal = Number.POSITIVE_INFINITY;
     }
 
     isEmpty(){
@@ -95,7 +101,7 @@ class List{
     }
 
     next(){
-        this.listSize  === this.pos ? this.pos : this.pos++; 
+        this.pos < this.listSize ? this.pos++ : null;   
     }
 
     currPos(){
@@ -107,6 +113,33 @@ class List{
             this.pos = index;
     }
 
+    traverse(){
+        for(this.front(); this.currPos() < this.length(); this.next()) {
+            console.log(this.getElement());
+        }
+    }
+
+    contains(element){
+        for(this.front(); this.currPos() < this.length(); this.next()) {
+            if(this.getElement() === element)
+                return true;
+        }
+        return false;
+    }
+
+    // littleAppend(element){
+    //     if(element < this.littleVal){
+    //         this.littleVal = element;
+    //         this.append(element);
+    //     }
+    // }
+
+    // biggerAppend(element){
+    //     if(element > this.bigval){
+    //         this.bigval = element;
+    //         this.append(element);
+    //     }
+    // }
 }
 
 var names = new List();
@@ -128,6 +161,6 @@ names.next();
 names.prev();
 console.log(names.getElement());    // Cynthia  
 
-for(names.front(); names.currPos() < names.length(); names.next()) {
-    console.log(names.getElement());
-}
+console.log(names.toStrign());
+names.traverse()
+
