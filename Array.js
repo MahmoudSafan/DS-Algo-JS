@@ -23,6 +23,7 @@
     * toString()    --> return a string containing the elements of the array de‐ limited by commas.
     * concat()      --> allows you to put together two or more arrays to create a new array.
     * splice()      --> allows you to create a new array from a subset of an existing array. --> NOTE Splice Will cut sub arrays from your existent arrays
+    * slice()
     * reverse()
     * sort()        --> sort function not work efficiently with the numbers.
     * push()        --> add element from the end.
