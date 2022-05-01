@@ -46,19 +46,6 @@ class Stack{
    }
 }
 
-// s1 = new Stack()
-
-// s1.Push(1)
-// s1.Push(2)
-
-// console.log(s1.Pop());
-// console.log(s1.Peek());
-
-// s1.Push(5)
-
-// console.log(s1.Peek());
-// console.log(s1);
-
 var s = new Stack();
 s.push("David");
 s.push("Raymond");
